@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.className+=" js"</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B63E5">
 <title>Lavage à domicile Casablanca dès 120 DH | Allo Lavage, nettoyage auto chez vous</title>
@@ -67,6 +68,40 @@ button{font-family:inherit}
 @keyframes mist{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.6);opacity:0}}
 .pulseg{animation:pulseg 2.2s infinite}
 @keyframes pulseg{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}100%{box-shadow:0 0 0 24px rgba(37,211,102,0)}}
+.marq:hover{animation-play-state:paused}
+.topbar .marq{animation-duration:36s}
+.dropicon{display:inline-block;margin:0 30px;vertical-align:middle;animation:wob 2.4s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-4px) rotate(8deg)}}
+.js .reveal:not(.in){opacity:0}
+.reveal.in{animation:revealin .9s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes revealin{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.pop{position:fixed;pointer-events:none;z-index:60;border-radius:50%;border:2px solid rgba(11,99,229,.55);background:rgba(255,255,255,.6);animation:popup 1s ease-out forwards}
+@keyframes popup{0%{transform:translate(-50%,-50%) scale(.4);opacity:1}70%{opacity:.9}100%{transform:translate(calc(-50% + var(--dx,0px)),calc(-50% - var(--dy,60px))) scale(1.3);opacity:0}}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:#2BB8FF;z-index:70}
+@media (max-width:700px){
+.navl{display:none!important}
+section:not(#top){padding-top:72px!important;padding-bottom:72px!important}
+section#reserver{padding-top:0!important}
+#top{padding-bottom:170px!important;min-height:0!important}
+h2{font-size:clamp(38px,11.5vw,56px)!important}
+.panel{padding:26px!important;gap:28px!important;border-radius:22px!important}
+.bignum{font-size:72px!important}
+.selname{font-size:42px!important}
+.selprice{font-size:38px!important}
+#sel-items div{font-size:17px!important;padding:12px 0!important}
+.pcards li{padding:20px 22px!important}
+.pcards li div:nth-child(1){font-size:24px!important}
+.pcards li div:nth-child(3){font-size:36px!important}
+.card{padding:26px!important}
+.card div:first-child{font-size:52px!important}
+.card h3{font-size:26px!important}
+.faqi{padding:22px!important}
+.faqi h3{font-size:19px!important}
+.chip{padding:10px 16px!important;font-size:15px!important}
+.fab{right:12px!important;bottom:12px!important}
+.fab a{padding:12px 16px!important;font-size:13px!important}
+}
+@media (prefers-reduced-motion:reduce){.pop{display:none}.js .reveal:not(.in){opacity:1!important}.dropicon,.reveal.in{animation:none!important}}
 @media (max-width:1250px){.carbg{position:relative!important;right:auto!important;bottom:auto!important;width:100%!important;margin-top:48px;order:3}.manfig{left:-1%!important;width:44%!important}}
 @media (prefers-reduced-motion:reduce){.rise,.bubble,.marq,.foam,.jet,.jet2,.sway,.armmove,.spray,.mist,.pulseg,.scrub,.sweep,.wave,.wave2,.pulse{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
@@ -74,13 +109,18 @@ button{font-family:inherit}
 <body>
 <div style="background:#FFFFFF;color:#0A2540;font-family:'Inter',system-ui,sans-serif;overflow:hidden">
 
+<div id="progress" aria-hidden="true"></div>
+<div class="topbar" style="background:#0B63E5;color:#FFFFFF;padding:11px 0;overflow:hidden" aria-hidden="true">
+<div class="marq" id="marq"></div>
+</div>
+
 <!-- NAV -->
 <nav aria-label="Navigation principale" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:28px 5vw;position:relative;z-index:3">
 <a href="#top" style="font-family:'Anton',Impact,sans-serif;font-size:30px;letter-spacing:2px;color:#0A2540">ALLO<span style="color:#0B63E5"> LAVAGE</span></a>
 <div style="display:flex;flex-wrap:wrap;gap:30px;align-items:center;font-size:15px;font-weight:600;letter-spacing:1.5px">
-<a class="navlink" href="#formules" style="color:#0A2540">FORMULES</a>
-<a class="navlink" href="#zones" style="color:#0A2540">ZONES</a>
-<a class="navlink" href="#faq" style="color:#0A2540">QUESTIONS</a>
+<a class="navlink navl" href="#formules" style="color:#0A2540">FORMULES</a>
+<a class="navlink navl" href="#zones" style="color:#0A2540">ZONES</a>
+<a class="navlink navl" href="#faq" style="color:#0A2540">QUESTIONS</a>
 <a class="btn" href="#reserver" style="background:#0B63E5;color:#FFFFFF;padding:14px 26px;border-radius:999px">RÉSERVER</a>
 </div>
 </nav>
@@ -185,19 +225,14 @@ button{font-family:inherit}
 </div>
 <div style="position:absolute;left:0;bottom:0;width:100%">
 <div class="wave">
-<svg viewBox="0 0 2400 120" preserveAspectRatio="none" width="50%" height="110" style="display:block"><path d="M0 80 Q300 30 600 80 T1200 80 V120 H0 Z" fill="#0B63E5" transform="scale(2,1)"/></svg>
-<svg viewBox="0 0 2400 120" preserveAspectRatio="none" width="50%" height="110" style="display:block"><path d="M0 80 Q300 30 600 80 T1200 80 V120 H0 Z" fill="#0B63E5" transform="scale(2,1)"/></svg>
+<svg viewBox="0 0 2400 120" preserveAspectRatio="none" width="50%" height="110" style="display:block"><path d="M0 80 Q300 30 600 80 T1200 80 V120 H0 Z" fill="#FFFFFF" transform="scale(2,1)"/></svg>
+<svg viewBox="0 0 2400 120" preserveAspectRatio="none" width="50%" height="110" style="display:block"><path d="M0 80 Q300 30 600 80 T1200 80 V120 H0 Z" fill="#FFFFFF" transform="scale(2,1)"/></svg>
 </div>
 </div>
 </div>
 </section>
 
-<!-- MARQUEE -->
-<div style="background:#0B63E5;color:#FFFFFF;padding:18px 0 24px;overflow:hidden" aria-hidden="true">
-<div class="marq" id="marq">
 
-</div>
-</div>
 
 <!-- FORMULES -->
 <section id="formules" style="padding:130px 5vw 120px;background:#FFFFFF">
@@ -207,21 +242,21 @@ button{font-family:inherit}
 <div id="tabs" role="group" aria-label="Choisir une formule" style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px">
 
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:48px;background:#F2F9FF;border:2px solid #CFE6FF;border-radius:28px;padding:56px">
+<div class="panel" style="display:flex;flex-wrap:wrap;gap:48px;background:#F2F9FF;border:2px solid #CFE6FF;border-radius:28px;padding:56px">
 <div style="flex:1 1 320px;min-width:0">
-<div style="font-family:'Anton',Impact,sans-serif;font-size:120px;line-height:1;color:#0B63E5" id="sel-num">01</div>
-<h3 style="margin:8px 0 16px;font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:56px;letter-spacing:1px" id="sel-name">GOLD</h3>
+<div style="font-family:'Anton',Impact,sans-serif;font-size:120px;line-height:1;color:#0B63E5" class="bignum" id="sel-num">01</div>
+<h3 style="margin:8px 0 16px;font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:56px;letter-spacing:1px" class="selname" id="sel-name">GOLD</h3>
 <p style="margin:0;font-size:19px;line-height:1.6;color:#2F4C6B;max-width:440px" id="sel-desc"></p>
 </div>
 <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px;justify-content:center">
 <div id="sel-items" style="display:flex;flex-direction:column;gap:16px"></div>
 <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-top:16px">
-<div style="font-size:15px;color:#2F4C6B;letter-spacing:2px">PRIX<br><span style="font-family:'Anton',Impact,sans-serif;font-size:48px;color:#0A2540;letter-spacing:1px" id="sel-price">120 DH</span></div>
+<div style="font-size:15px;color:#2F4C6B;letter-spacing:2px">PRIX<br><span style="font-family:'Anton',Impact,sans-serif;font-size:48px;color:#0A2540;letter-spacing:1px" class="selprice" id="sel-price">120 DH</span></div>
 <a class="btn" href="#reserver" style="background:#0B63E5;color:#FFFFFF;padding:16px 30px;border-radius:999px;font-weight:600;letter-spacing:1px">JE RÉSERVE</a>
 </div>
 </div>
 </div>
-<ul style="list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:16px">
+<ul class="pcards" style="list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:16px">
 <li style="flex:1 1 240px;min-width:0;background:#FFFFFF;border:2px solid #CFE6FF;border-radius:20px;padding:28px 30px">
 <div style="font-family:'Anton',Impact,sans-serif;font-size:30px;letter-spacing:1px">LAVAGE GOLD</div>
 <div style="font-size:16px;color:#2F4C6B;margin:6px 0 14px">Intérieur et extérieur</div>
@@ -303,19 +338,19 @@ button{font-family:inherit}
 <div style="font-size:15px;letter-spacing:6px;color:#0B63E5;font-weight:600;margin-bottom:16px">05 — QUESTIONS FRÉQUENTES</div>
 <h2 style="margin:0 0 56px;font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:clamp(56px,8.5vw,130px);line-height:.98">LAVAGE VOITURE<br><span style="color:#0B63E5">À DOMICILE : FAQ</span></h2>
 <div style="display:flex;flex-direction:column;gap:20px;max-width:980px">
-<div style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
+<div class="faqi" style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
 <h3 style="margin:0 0 10px;font-size:23px;font-weight:600">Où faites-vous du lavage auto à domicile ?</h3>
 <p style="margin:0;font-size:18px;line-height:1.7;color:#2F4C6B">Nous intervenons à Casablanca, chez toi ou sur ton lieu de travail. Contacte-nous avec ton quartier pour confirmer la disponibilité.</p>
 </div>
-<div style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
+<div class="faqi" style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
 <h3 style="margin:0 0 10px;font-size:23px;font-weight:600">Quel est le prix d'un lavage voiture à domicile à Casablanca ?</h3>
 <p style="margin:0;font-size:18px;line-height:1.7;color:#2F4C6B">Nos tarifs : lavage Gold 120 DH (intérieur et extérieur), lavage Premium 250 DH (6 produits d'Italie pour ton véhicule) et lavage Complet 800 DH. Écris-nous sur WhatsApp pour réserver.</p>
 </div>
-<div style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
+<div class="faqi" style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
 <h3 style="margin:0 0 10px;font-size:23px;font-weight:600">Quelle formule choisir pour mon nettoyage auto ?</h3>
 <p style="margin:0;font-size:18px;line-height:1.7;color:#2F4C6B">Le lavage Gold (120 DH) nettoie l'intérieur et l'extérieur. Le Premium (250 DH) utilise 6 produits d'Italie pour prendre soin de ton véhicule. Le Complet (800 DH) est le soin le plus complet.</p>
 </div>
-<div style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
+<div class="faqi" style="background:#F2F9FF;border:2px solid #CFE6FF;border-radius:20px;padding:32px 36px">
 <h3 style="margin:0 0 10px;font-size:23px;font-weight:600">Comment réserver mon lavage à domicile ?</h3>
 <p style="margin:0;font-size:18px;line-height:1.7;color:#2F4C6B">Par WhatsApp ou par téléphone : tu nous donnes ta formule, ton adresse et le créneau qui t'arrange, et on confirme.</p>
 </div>
@@ -358,7 +393,7 @@ button{font-family:inherit}
 </div>
 </footer>
 
-<div style="position:fixed;right:20px;bottom:20px;z-index:50;display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+<div class="fab" style="position:fixed;right:20px;bottom:20px;z-index:50;display:flex;flex-direction:column;gap:12px;align-items:flex-end">
 <a class="btn" href="tel:+212661389143" style="display:flex;align-items:center;gap:10px;background:#FFFFFF;color:#0A2540;border:2px solid #0A2540;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;letter-spacing:1px;box-shadow:0 10px 30px rgba(10,37,64,.2)">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2540" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
 <span>APPELER</span>
@@ -398,7 +433,7 @@ button{font-family:inherit}
       b.type = 'button';
       b.textContent = s.label;
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      b.setAttribute('style', 'cursor:pointer;font-size:16px;font-weight:600;letter-spacing:1.5px;padding:16px 30px;border-radius:999px;transition:all .25s;' +
+      b.setAttribute('style', 'cursor:pointer;font-size:16px;font-weight:600;letter-spacing:1.5px;padding:13px 22px;border-radius:999px;transition:all .25s;' +
         (on ? 'background:#0B63E5;color:#FFFFFF;border:2px solid #0B63E5;' : 'background:#FFFFFF;color:#0A2540;border:2px solid #CFE6FF;'));
       b.addEventListener('click', function () { picked = s.id; renderTabs(); renderPanel(); });
       tabsEl.appendChild(b);
@@ -433,16 +468,13 @@ button{font-family:inherit}
     bub.appendChild(d);
   }
 
-  var words = ['LAVAGE À DOMICILE', 'CASABLANCA', 'MOUSSE', 'BRILLANCE', 'INTÉRIEUR', 'EXTÉRIEUR'];
+  var words = ['LAVAGE À DOMICILE CASABLANCA', 'MOUSSE', 'BRILLANCE', 'LAVAGE DÈS 120 DH', '7J/7 · 10H – 21H', 'WHATSAPP +212 661 38 91 43'];
   var marq = document.getElementById('marq');
+  var drop = '<svg class="dropicon" width="14" height="19" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 2C12 2 3 14 3 21a9 9 0 0018 0C21 14 12 2 12 2z" fill="#FFFFFF"/></svg>';
   words.concat(words).forEach(function (w) {
     var sp = document.createElement('span');
-    sp.setAttribute('style', "font-family:'Anton',Impact,sans-serif;font-size:44px;letter-spacing:3px;white-space:nowrap;padding:0 28px");
-    sp.appendChild(document.createTextNode(w));
-    var star = document.createElement('span');
-    star.setAttribute('style', 'padding-left:56px');
-    star.textContent = '\u2726';
-    sp.appendChild(star);
+    sp.setAttribute('style', "font-family:'Anton',Impact,sans-serif;font-size:19px;letter-spacing:2.5px;white-space:nowrap");
+    sp.innerHTML = w + drop;
     marq.appendChild(sp);
   });
 
@@ -457,6 +489,57 @@ button{font-family:inherit}
 
   renderTabs();
   renderPanel();
+
+  // Effets : bulles, barre de progression, apparition au scroll
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function spawn(x, y, big) {
+    if (reduce || document.querySelectorAll('.pop').length > 60) return;
+    var b = document.createElement('div');
+    var size = big ? 14 + Math.random() * 26 : 7 + Math.random() * 11;
+    b.className = 'pop';
+    b.style.cssText = 'left:' + x + 'px;top:' + y + 'px;width:' + size + 'px;height:' + size + 'px;--dx:' + (Math.random() * 90 - 45) + 'px;--dy:' + (50 + Math.random() * 90) + 'px';
+    document.body.appendChild(b);
+    setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, 1100);
+  }
+  document.addEventListener('pointerdown', function (e) {
+    for (var k = 0; k < 7; k++) spawn(e.clientX, e.clientY, true);
+  });
+  if (fine) {
+    var last = 0;
+    document.addEventListener('pointermove', function (e) {
+      var now = Date.now();
+      if (now - last < 70) return;
+      last = now;
+      spawn(e.clientX, e.clientY, false);
+    });
+  }
+
+  var targets = document.querySelectorAll('section:not(#top) h2, section:not(#top) article, section:not(#top) > p, section:not(#top) > div, .pcards li, .faqi, #zones-list li');
+  var i2 = 0;
+  Array.prototype.forEach.call(targets, function (t) {
+    t.classList.add('reveal');
+    t.style.animationDelay = ((i2++ % 4) * 0.08) + 's';
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    Array.prototype.forEach.call(targets, function (t) { io.observe(t); });
+  } else {
+    Array.prototype.forEach.call(targets, function (t) { t.classList.add('in'); });
+  }
 })();
 </script>
 </body>
